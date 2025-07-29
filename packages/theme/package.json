@@ -1,0 +1,21 @@
+{
+  "name": "theme",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./config": "./src/config.ts",
+    "./semantics": "./src/semantics.ts",
+    "./styles": "./src/styles.ts",
+    "./tokens": "./src/tokens.ts"
+  },
+  "dependencies": {
+    "@yamada-ui/react": "1.7.7"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3"
+  }
+}

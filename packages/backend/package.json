@@ -1,12 +1,12 @@
 {
-  "name": "@tanstack-start-convex-template/backend",
+  "name": "backend",
   "version": "1.0.0",
   "scripts": {
     "dev": "convex dev",
     "dev:setup": "convex dev --configure --until-success"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "description": "",
   "devDependencies": {
     "typescript": "^5.8.3"

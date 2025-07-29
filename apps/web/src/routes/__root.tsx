@@ -1,17 +1,16 @@
-import { Toaster } from "@/components/ui/sonner";
-
+import type { QueryClient } from "@tanstack/react-query";
 import {
+  createRootRouteWithContext,
   HeadContent,
   Outlet,
   Scripts,
-  createRootRouteWithContext,
   useRouterState,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import Header from "../components/header";
-import appCss from "../index.css?url";
-import type { QueryClient } from "@tanstack/react-query";
+import { ColorModeScript, UIProvider, VStack } from "@yamada-ui/react";
+import { defaultConfig, defaultTheme } from "theme";
 import Loader from "@/components/loader";
+import Header from "../components/header";
 
 export interface RouterAppContext {
   queryClient: QueryClient;
@@ -31,12 +30,6 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
         title: "My App",
       },
     ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
   }),
 
   component: RootDocument,
@@ -46,16 +39,18 @@ function RootDocument() {
   const isFetching = useRouterState({ select: (s) => s.isLoading });
 
   return (
-    <html lang="en" className="dark">
+    <html className="dark" lang="en">
       <head>
         <HeadContent />
       </head>
       <body>
-        <div className="grid h-svh grid-rows-[auto_1fr]">
-          <Header />
-          {isFetching ? <Loader /> : <Outlet />}
-        </div>
-        <Toaster richColors />
+        <ColorModeScript initialColorMode="dark" />
+        <UIProvider config={defaultConfig} theme={defaultTheme}>
+          <VStack>
+            <Header />
+            {isFetching ? <Loader /> : <Outlet />}
+          </VStack>
+        </UIProvider>
         <TanStackRouterDevtools position="bottom-left" />
         <Scripts />
       </body>

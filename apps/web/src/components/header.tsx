@@ -1,5 +1,12 @@
 import { Link } from "@tanstack/react-router";
-
+import {
+  Container,
+  HStack,
+  List,
+  ListItem,
+  Separator,
+  VStack,
+} from "@yamada-ui/react";
 
 export default function Header() {
   const links = [
@@ -8,24 +15,19 @@ export default function Header() {
   ];
 
   return (
-    <div>
-      <div className="flex flex-row items-center justify-between px-2 py-1">
-        <nav className="flex gap-4 text-lg">
+    <VStack as="header" gap="0">
+      <Container as="nav" gap="0">
+        <HStack as={List}>
           {links.map(({ to, label }) => {
             return (
-              <Link
-                key={to}
-                to={to}
-              >
-                {label}
-              </Link>
+              <ListItem key={to}>
+                <Link to={to}>{label}</Link>
+              </ListItem>
             );
           })}
-        </nav>
-        <div className="flex items-center gap-2">
-        </div>
-      </div>
-      <hr />
-    </div>
+        </HStack>
+      </Container>
+      <Separator />
+    </VStack>
   );
 }
