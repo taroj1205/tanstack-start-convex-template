@@ -1,3 +1,3 @@
 [install]
 linker = "isolated"
-save-exact = true
+exact = true

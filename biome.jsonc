@@ -367,18 +367,8 @@
           "fix": "safe",
           "level": "error",
           "options": {
-            "attributes": [
-              "className"
-            ],
-            "functions": [
-              "clsx",
-              "cva",
-              "tw",
-              "twMerge",
-              "cn",
-              "twJoin",
-              "tv"
-            ]
+            "attributes": ["className"],
+            "functions": ["clsx", "cva", "tw", "twMerge", "cn", "twJoin", "tv"]
           }
         },
         // Prevent the usage of static string literal id attribute on elements.
@@ -502,9 +492,7 @@
           "level": "error",
           "options": {
             "requireAscii": true,
-            "filenameCases": [
-              "kebab-case"
-            ],
+            "filenameCases": ["kebab-case"],
             "match": "[\\-$]?(.+?)[.](.+)"
           }
         },
@@ -586,14 +574,7 @@
         "noConsole": {
           "level": "error",
           "options": {
-            "allow": [
-              "error",
-              "warn",
-              "info",
-              "log",
-              "debug",
-              "trace"
-            ]
+            "allow": ["error", "warn", "info", "log", "debug", "trace"]
           }
         },
         // Disallow TypeScript const enum
@@ -804,9 +785,7 @@
   },
   "overrides": [
     {
-      "includes": [
-        "**/convex/**/*.ts"
-      ],
+      "includes": ["**/convex/**/*.ts"],
       "linter": {
         "rules": {
           "style": {

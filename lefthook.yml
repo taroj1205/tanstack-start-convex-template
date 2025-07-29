@@ -1,0 +1,48 @@
+commit-msg:
+  commands:
+    commitlint:
+      run: bun commitlint --edit $1
+
+post-merge:
+  commands:
+    bun:
+      glob: "{package.json,bun.lock}"
+      run: bun install
+
+pre-commit:
+  parallel: true
+  exclude:
+    - "convex/_generated/**/*"
+    - "bun.lock"
+  commands:
+    biome:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run: |
+        bun biome check --no-errors-on-unmatched --files-ignore-unknown=true --error-on-warnings --colors=off {staged_files}
+    cspell:
+      glob: "*.{ts,tsx,js,jsx,cjs,mjs,json,md,mdx,css,scss,yaml,yml}"
+      run: |
+        bun lefthook run cspell
+    secretlint:
+      glob: "*"
+      run: |
+        npx secretlint --maskSecrets {staged_files}
+      stage_fixed: true
+
+cspell:
+  parallel: true
+  commands:
+    cspell:
+      exclude:
+        - "apps/web/**/*"
+        - "packages/backend/**/*"
+      run: |
+        bun cspell {staged_files} --cache --cache-strategy=content --cache-location=.cspellcache
+    web:
+      glob: "apps/web/**/*"
+      run: |
+        bun cspell {staged_files} --cache --cache-strategy=content --cache-location=.cspellcache
+    backend:
+      glob: "packages/backend/**/*"
+      run: |
+        bun cspell {staged_files} --cache --cache-strategy=content --cache-location=.cspellcache
