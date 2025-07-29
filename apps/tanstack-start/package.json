@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "tanstack-start",
   "private": true,
   "type": "module",
   "scripts": {
