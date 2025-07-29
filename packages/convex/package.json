@@ -1,9 +1,14 @@
 {
-  "name": "backend",
+  "name": "@repo/convex",
   "version": "1.0.0",
   "scripts": {
     "dev": "convex dev",
     "dev:setup": "convex dev --configure --until-success"
+  },
+  "exports": {
+    "./api": "./src/_generated/api.js",
+    "./dataModel": "./src/_generated/dataModel.js",
+    "./server": "./src/_generated/server.js"
   },
   "author": "",
   "license": "MIT",
