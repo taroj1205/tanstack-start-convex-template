@@ -15,7 +15,14 @@ export default function Header() {
   ];
 
   return (
-    <VStack as="header" gap="0">
+    <VStack
+      as="header"
+      backdropBlur="sm"
+      bg={["whiteAlpha.50", "blackAlpha.50"]}
+      gap="0"
+      position="fixed"
+      top="0"
+    >
       <Container as="nav" gap="0">
         <HStack as={List}>
           {links.map(({ to, label }) => {

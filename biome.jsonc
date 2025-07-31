@@ -793,6 +793,16 @@
           }
         }
       }
+    },
+    {
+      "includes": ["**/routes/**/*.ts", "**/routes/**/*.tsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": "off"
+          }
+        }
+      }
     }
   ]
 }

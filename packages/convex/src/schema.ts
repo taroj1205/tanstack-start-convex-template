@@ -6,4 +6,7 @@ export default defineSchema({
     text: v.string(),
     completed: v.boolean(),
   }),
+  users: defineTable({
+    // Fields are optional - Better Auth handles basic user data
+  }),
 });

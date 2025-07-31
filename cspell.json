@@ -72,6 +72,12 @@
     "VITE",
     "vinxi",
     "vercel",
-    "envar"
+    "envar",
+    "betterauth",
+    "resend",
+    "webhook",
+    "idempotency",
+    "workpools",
+    "Typesafe"
   ]
 }

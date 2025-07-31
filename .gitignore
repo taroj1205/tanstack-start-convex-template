@@ -2,3 +2,4 @@ node_modules
 .turbo
 .cspellcache
 .tanstack
+.env.local

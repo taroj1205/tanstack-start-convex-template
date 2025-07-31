@@ -8,7 +8,8 @@
   "exports": {
     "./api": "./src/_generated/api.js",
     "./dataModel": "./src/_generated/dataModel.js",
-    "./server": "./src/_generated/server.js"
+    "./server": "./src/_generated/server.js",
+    "./auth": "./src/auth.ts"
   },
   "author": "",
   "license": "MIT",
@@ -17,6 +18,9 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@convex-dev/better-auth": "0.7.11",
+    "@convex-dev/resend": "0.1.7",
+    "better-auth": "1.2.12",
     "convex": "^1.25.0"
   }
 }
